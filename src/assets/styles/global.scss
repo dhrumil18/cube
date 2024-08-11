@@ -1,0 +1,225 @@
+:root {
+  font-family: Nunito-medium;
+  padding: 0;
+  margin: 0;
+}
+
+body,
+p,
+button {
+  padding: 0;
+  margin: 0;
+  background: none;
+  border: none;
+  overflow: hidden;
+}
+
+@font-face {
+  font-family: "Nunito-Semibold";
+  src: url(../fonts/Nunito-SemiBold.ttf);
+}
+
+@font-face {
+  font-family: "Nunito-Bold";
+  src: url(../fonts/Nunito-Bold.ttf);
+}
+
+@font-face {
+  font-family: "Nunito-medium";
+  src: url(../fonts/Nunito-Medium.ttf);
+}
+
+@font-face {
+  font-family: "Nunito";
+  src: url(../fonts/Nunito-Regular.ttf);
+}
+
+.layout {
+  width: min(calc(100% - 4rem), 1400px);
+  margin-inline: auto;
+}
+
+.loader {
+  height: calc(100vh - 72px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .spinner {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: radial-gradient(farthest-side, #474bff 94%, #0000) top/9px 9px
+        no-repeat,
+      conic-gradient(#0000 30%, #474bff);
+    -webkit-mask: radial-gradient(
+      farthest-side,
+      #0000 calc(100% - 9px),
+      #000 0
+    );
+    animation: spinner-c7wet2 1s infinite linear;
+  }
+
+  @keyframes spinner-c7wet2 {
+    100% {
+      transform: rotate(1turn);
+    }
+  }
+}
+
+.header {
+  background-color: black;
+  padding: 8px 16px 8px 24px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  img {
+    height: 50px;
+    width: 50px;
+    object-fit: contain;
+  }
+}
+
+.main-container {
+  display: flex;
+  height: calc(100vh - 72px);
+  .customer-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    .customer-item {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      align-items: flex-start;
+      border-bottom: 1px solid lightgray;
+      padding: 16px;
+      cursor: pointer;
+      .name {
+        font-size: 24px;
+        font-weight: 600;
+      }
+      .desc {
+        font-size: 16px;
+        font-weight: 500;
+      }
+    }
+    .customer-item-selected {
+      background: #eee;
+    }
+  }
+  .customer-container-width {
+    width: 40vw;
+  }
+  .main-review-container {
+    flex: 1;
+    padding: 8px 16px;
+    border-left: 1px solid lightgray;
+    height: calc(100vh - 72px);
+    overflow-y: auto;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: sticky;
+    top: 72px;
+    .text-container {
+      display: flex;
+      flex-direction: column;
+      row-gap: 12px;
+      align-items: center;
+      .title-container {
+        text-align: center;
+        .name {
+          font-size: 20px;
+          font-weight: 600;
+          line-height: 28px;
+          text-align: center;
+        }
+        .email {
+          font-size: 14px;
+          font-weight: 500;
+          line-height: 20px;
+          text-align: center;
+        }
+      }
+      .address {
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 20px;
+        text-align: center;
+      }
+      .desc {
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 20px;
+        text-align: center;
+      }
+    }
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 16px;
+    }
+    .photo-grid img {
+      width: 100%;
+      height: auto;
+      border-radius: 16px;
+    }
+  }
+}
+
+.error {
+  height: calc(100vh - 72px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  img {
+    height: 100px;
+    width: 100px;
+  }
+  button {
+    background-color: #2874f0;
+    font-family: Nunito-Semibold;
+    color: white;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+}
+
+.toast {
+  position: fixed;
+  padding: 8px;
+  font-size: 16px;
+  width: 40vw;
+  left: 50%;
+  transform: translateX(-50%);
+  width: fit-content;
+  bottom: 16px;
+  background: #eee;
+}
+
+/* Styles for WebKit browsers (Chrome, Safari) */
+::-webkit-scrollbar {
+  width: 6px; /* Width of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Background color of the track */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888; /* Color of the draggable part of the scrollbar */
+  border-radius: 10px; /* Rounded corners for the thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Color of the thumb when hovered */
+}
